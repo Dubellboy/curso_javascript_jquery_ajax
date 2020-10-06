@@ -1,3 +1,6 @@
+$(document).ready(function(){
+
+
 //FUNÇOES
 
 
@@ -529,23 +532,182 @@
 //     document.getElementById('escolaridade_selecionada').innerHTML = valor_selecionado;
 // };
 
-var check = document.getElementsByName("lanche");
+// var check = document.getElementsByName("lanche");
 
-    for (var a = 0; a < check.length; a ++){
+//     for (var a = 0; a < check.length; a ++){
 
-        check[a].onchange = function () {
+//         check[a].onchange = function () {
 
-        document.getElementById("check_selecionado").innerHTML ="";
+//         document.getElementById("check_selecionado").innerHTML ="";
         
-    for (var b = 0; b < check.length; b++){
+//     for (var b = 0; b < check.length; b++){
          
-        if (check[b].checked){
+//         if (check[b].checked){
 
-            document.getElementById("check_selecionado").innerHTML += '<li>' + check[b].value + '</li>'
-            }
+//             document.getElementById("check_selecionado").innerHTML += '<li>' + check[b].value + '</li>'
+//             }
 
-        }
-    }
-}
+//         }
+//     }
+// }
+ 
+/*-----------------------------------Inicio JQUERY----------------------------------------------*/
+
+//Aula 34 - Jquery - Sintaxe
+
+// document.getElementById("exemplo").innerHTML = "ola"; /*Forma modo Vanilla ou modo Javascript puor*/
+
+// $("elemento").html("olá");/*Modo Jquery*/
+// $(".elemento").html("olá");/*Modo Jquery com classe*/
+// $("#elemento").html("olá");/*Modo Jquery com ID*/
+
+// $("#esconder").click(function(){
+//     $(".exemplo").hide() /*Esconder o elemento*/
+// });
+
+/*--------------------------------------Aula 35 - Jquery - Maninpulação do conteúdo HTML----------------------------------------- */
+
+// var conteudo_html = $("#paragrafo-html").html();/*Traz todo conteudo incluindo as tags de formatação*/
+// console.log(conteudo_html);
+
+// // var conteudo_html2 = $("#paragrafo-html").text();/* Traz somente o texto*/
+// // console.log(conteudo_html2)
+
+// $("#paragrafo-html").html("Mudar conteúdo do parágrafo");//Alterando o conteúdo
+
+// conteudo_html = $("#paragrafo-html").html();
+// console.log(conteudo_html);
+
+// /*---Mudar link da página---*/
+// var url_link = $("#paragrafo-link").attr("href");
+// console.log(url_link);
+
+// $("#paragrafo-link").attr("href","http://www.udemy.com");
+// url_link = $("#paragrafo-link").attr("href");
+// console.log(url_link);
 
 
+// /*------Mudando a imagem*/
+
+// $("#mudar_imagem").click(function(){
+//     $("#imagem_js").attr("src", "https://cdn.tutsplus.com/net/uploads/2013/12/managing-async-nodejs-retina-preview.png");
+//     $("#mudar_imagem").hide()
+// });
+
+// //$("#paragrafo-empty").html("");//Remover o texto 
+
+// $("#paragrafo-empty").remove("");//Remover todo elemento
+
+
+
+
+// /*------------------Aula 35 - Loop Each----------------------*/
+
+
+// var lista =["HTML", "CSS", "Javascript", "PHP"];
+
+
+// // $.each(lista, function(indice,valor){
+// //     console.log('O elemento de índice [' + indice + '] tem o valor de ' + valor);
+    
+// // });
+
+// // var pessoa = {
+// //     'nome': 'Jão Pedro',
+// //     'DN': 20/01/1190,
+// //     'CPF': '111.111.111-11'
+// // };
+
+// // $.each(pessoa, function(chave,valor){
+// //     console.log('O elemento de chave [' + chave + '] tem o valor de ' + valor);
+// // });
+
+// var interesses = $("#interesses li");
+    
+
+// $.each(interesses, function(chave, valor){
+//     console.log($(valor).text());
+    
+// });
+
+/*------------------------Aula 36 Formulários---------------------------------*/
+
+//Pegar conteúdo do campo input 
+//     var conteudo_input = $("#campo_nome").val();
+//         console.log(conteudo_input);
+
+// //Mudar o conteúdo do campo
+//     $("#campo_nome").val("João Pedro");
+
+//     var conteudo_input2 = $("#campo_nome").val();
+
+// //Mostrar qual opção está selecionada Select Box
+//     console.log( $("#options").val );
+ 
+// Verificar qual opção foi selecionada pelo Select Box pelo nome
+//     console.log( $("#options").find(":selected").text() );
+
+
+// Mudar o valor e automaticamente aparecer no console
+$("#options").change(function(){
+    var nome_selecionado = $('#options').find(":selected").text();
+    console.log(nome_selecionado);
+});
+
+//Mostrando opção pelos Radio Buttons
+
+$("input[name='genero']").change(function() {
+
+    var novo_radio_selecionado = $("input[name='genero']:checked").parent('span').text();;
+    console.log(novo_radio_selecionado);
+
+});
+
+
+//Mostrando valores selecionados pelo check box
+$("input[name='interesse']").change(function() {
+
+    var checkboxes_selecionados = $("input[name='interesse']:checked");
+    var textos = [];
+    
+    $.each(checkboxes_selecionados, function( index, value ) {
+        
+        textos.push($(value).parent("span").text());
+    
+    });
+    
+    console.log(textos);
+    
+});
+
+/*-----------------------Aula 37 - Manipulação de classes CSS Jquery-----*/
+
+//addClass(), removeClass(), toggleClass()
+
+//Adicionar evento ao clicar com css
+$("#adicionar_classe").click(function(){
+    $("#paragrafo-classes").addClass("styling");
+});
+
+
+//Remover a classe alterada
+$("#remover_classe").click(function(){
+    $("#paragrafo-classes").removeClass("styling");
+});
+
+//Alternar classe em um só botão
+
+$("#alternar_classe").click(function(){
+    $("#paragrafo-classes").toggleClass("styling");
+});
+
+/*-----------------Aula 38 Jquery Eventos -----------------*/
+
+
+
+
+
+
+
+    
+});
