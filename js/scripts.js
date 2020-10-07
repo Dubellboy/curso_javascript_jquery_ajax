@@ -705,9 +705,36 @@ $("#alternar_classe").click(function(){
 
 
 
+$("#nome").keyup(function(){//Quando digita uma letra já aparece o botão confirmar
+    var conteudo = $("#nome").val();
+        if(conteudo) {
+            $("#confirmar").css("display", "initial");
+        }else {
+            $("#confirmar").css("display", "none");
+        }
+});
 
+/*-------------------------------Aula 39 - Efeitos Jquery--------------------*/
 
+    //Clicar no botão e ele desaparecer
+    // $("#botao-esconder").click(function(){
+    //     $(this).hide(1000,function(){
+    //         $("#texto-escondido").show();
+    //     });
+    // });
 
+    //Aparecer o conteúdo
+    // $("#toggle-tab").click(function(){
+    //     $("#tab-content").toggle();
+    //     $("#toggle-tab").toggleClass("flip");
+    // });
+
+    //Efeito de subir e descer
+    $("#toggle-tab").click(function(){
+        $("#tab-content").slideToggle()
+        $("#toggle-tab").toggleClass("flip");
+       
+    });
 
     
 });
